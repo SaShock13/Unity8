@@ -13,14 +13,11 @@ public class RelayRaceScript : MonoBehaviour
     Vector3 finish;
     [SerializeField]
     float speed;
-
     Vector3 targetPosition;
     GameObject currentRunner;    
     float offset;
     int runnerIndex=0;
     bool isFinished;
-    
-    
     Vector3 runnerPosition;
     
     void Start()
@@ -69,8 +66,7 @@ public class RelayRaceScript : MonoBehaviour
         }
         currentRunner.transform.LookAt(targetPosition);
         runners[runnerIndex + 1].transform.LookAt(currentRunner.transform);
-        stick.transform.SetParent(currentRunner.transform);
-        stick.transform.localPosition = new Vector3(0.35f, 0.5f, 0.6f);        
+        stick.transform.SetParent(currentRunner.transform,false);           
     }
 
     void Finish()
